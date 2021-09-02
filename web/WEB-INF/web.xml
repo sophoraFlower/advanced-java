@@ -13,4 +13,21 @@
         <url-pattern>/index.jsp</url-pattern>
     </filter-mapping>
 
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>cn.advanced.java.example01.LoginFilter</filter-class>
+        <init-param>
+            <param-name>login_uri</param-name>
+            <param-value>/login.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>home_uri</param-name>
+            <param-value>/home.jsp</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
 </web-app>
