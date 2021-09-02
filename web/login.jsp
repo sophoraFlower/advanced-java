@@ -15,7 +15,7 @@
         <td><input type="password" name="password"></td>
       </tr>
       <tr>
-        <input type="hidden" name="origin_url" value="${requestScope.origin_url}">
+        <input type="hidden" name="origin_uri" value="${requestScope.origin_uri}">
       </tr>
       <tr>
         <td><input type="reset" value="重填"></td>

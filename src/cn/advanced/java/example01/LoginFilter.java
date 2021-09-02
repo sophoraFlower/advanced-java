@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class LoginFilter implements Filter {
 
@@ -15,7 +16,7 @@ public class LoginFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        // 从部署描述符中获取登录页面和首页的URI
+        // 从web.xml中获取登录页面和首页的URI
         login_page = filterConfig.getInitParameter(LOGIN_URI);
         home_page = filterConfig.getInitParameter(HOME_URI);
 
@@ -63,10 +64,38 @@ public class LoginFilter implements Filter {
                     } else {
                         httpServletResponse.sendRedirect(ctxPath+home_page);
                     }
-                    return;
                 } else {
-                    
+                    // 如果验证失败，则从请求对象中获取用户先前访问的URI
+                    // 如果该URI存在，则再次将它作为"origin_uri"属性的值保存到请求对象中
+                    String origin_uri = httpServletRequest.getParameter("origin_uri");
+                    if (null != origin_uri && !"".equals(origin_uri)) {
+                        httpServletRequest.setAttribute("origin_uri", origin_uri);
+                    }
+                    httpServletResponse.setContentType("text/html;charset=utf-8");
+                    PrintWriter printWriter = httpServletResponse.getWriter();
+                    printWriter.println("<h2>用户名或密码错误，请重新输入</h2>");
+                    RequestDispatcher requestDispatcher = httpServletRequest.getRequestDispatcher(login_page);
+                    requestDispatcher.include(httpServletRequest, httpServletResponse);
                 }
+            } else {
+                // 如果用户不是提交登陆信息，则调用chain.doFilter()方法调用登录页面
+                chain.doFilter(request, response);
+            }
+        } else {
+            // 如果访问的不是登录页面，则判断用户是否已登录
+            String isLogin = (String) httpSession.getAttribute("isLogin");
+            if ("true".equals(isLogin)) {
+                chain.doFilter(request, response);
+            } else {
+                // 如果用户没有登录，则将用户的请求URI作为origin_uri属性的值保存到请求对象中
+                String strQuery = httpServletRequest.getQueryString();
+                if (null != strQuery) {
+                    request_uri=request_uri+"?"+strQuery;
+                }
+                httpServletRequest.setAttribute("origin_uri", request_uri);
+                // 将用户请求转发给登录页面
+                RequestDispatcher requestDispatcher = httpServletRequest.getRequestDispatcher(login_page);
+                requestDispatcher.forward(httpServletRequest, httpServletResponse);
             }
         }
 
