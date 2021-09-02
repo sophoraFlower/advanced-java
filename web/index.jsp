@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: houle
-  Date: 2021/9/1
-  Time: 10:47 下午
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
@@ -12,5 +5,6 @@
   </head>
   <body>
   $END$
+  <br />
   </body>
 </html>
