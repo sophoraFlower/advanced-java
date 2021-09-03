@@ -15,6 +15,41 @@
     </filter-mapping>
     -->
 
+    <servlet>
+        <servlet-name>WelcomeServlet</servlet-name>
+        <servlet-class>cn.advanced.java.example02.WelcomeServlet</servlet-class>
+        <init-param>
+            <param-name>greeting</param-name>
+            <param-value>Welcome you</param-value>
+        </init-param>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>WelcomeServlet</servlet-name>
+        <url-pattern>/welcome</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>OutputInfoServlet</servlet-name>
+        <servlet-class>cn.advanced.java.example02.OutputInfoServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>OutputInfoServlet</servlet-name>
+        <url-pattern>/info</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>cn.advanced.java.example02.LoginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <!--
     <filter>
         <filter-name>LoginFilter</filter-name>
         <filter-class>cn.advanced.java.example01.LoginFilter</filter-class>
@@ -31,5 +66,5 @@
         <filter-name>LoginFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
+    -->
 </web-app>
