@@ -76,4 +76,5 @@
         <servlet-name>CounterServlet</servlet-name>
         <url-pattern>/product.html</url-pattern>
     </servlet-mapping>
+
 </web-app>
