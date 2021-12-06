@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mialab.mybatis_ResultMap_demo.mapper.StudentMapper">
+	<resultMap id="studentResultMap" type="student">
+		<id property="sno" column="stu_sno" />
+		<result property="name" column="stu_name" />
+		<result property="sex" column="stu_sex" />
+		<result property="age" column="stu_age" />
+		<result property="dept_no" column="stu_dept_no" />
+	</resultMap>
+	<select id="getStudentAll" resultMap="studentResultMap">
+		select * from student_2
+	</select>
+</mapper>
