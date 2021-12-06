@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 指定 MyBatis 所用日志的具体实现 -->
+	<settings>
+		<setting name="logImpl" value="LOG4J" />
+	</settings>
+	<!-- 设置别名 -->
+	<typeAliases>
+		
+	</typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"></property>
+                <property name="url" value="jdbc:mysql://localhost:3306/stu?useUnicode=true"></property>
+                <property name="username" value="root"></property>
+                <property name="password" value="2022@Tokyo"></property>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--加载映射文件-->
+    <mappers>
+        <mapper resource="com/mialab/OneToOne_demo/mapper/EmployeeMapper.xml"></mapper>
+        <mapper resource="com/mialab/OneToOne_demo/mapper/EmployeeSchoolMapper.xml"></mapper>
+    </mappers>
+</configuration>
