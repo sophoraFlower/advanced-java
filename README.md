@@ -32,7 +32,6 @@
   - 技术亮点：MySQL主从同步/项目读写分离/框架迁移/代码重构
 
 ### 接口自动化测试框架
-* 技术栈：
-
+* 技术栈：MUI+H5Plus、MariaDB/MySQL、SpringBoot+Netty、Nginx+FastDFS
 ### 仿微信客户端
 * 技术栈：
