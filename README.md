@@ -10,7 +10,11 @@
 
 ## Spring
 
+- POJO 编程模型、轻量级容器和控制反转
 
+- 使用Spring进行依赖注入
+
+- 使用Spring MVC 构建Web应用程序
 
 ## Spring MVC
 
