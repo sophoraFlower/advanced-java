@@ -18,6 +18,10 @@
 
 - 使用Spring进行JDBC数据访问
 
+- 通过spring使用JPA进行数据访问
+
+- 使用Spring事务管理
+
 - 
 
 ## Spring MVC
