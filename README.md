@@ -22,7 +22,9 @@
 
 - 使用Spring事务管理
 
-- 
+- 使用Spring进行驱动测试开发
+
+- 使用Spring进行面向方向编程
 
 ## Spring MVC
 
