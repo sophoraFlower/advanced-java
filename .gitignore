@@ -29,5 +29,7 @@ hs_err_pid*
 /src/main/webapp/WEB-INF/classes
 /src/main/webapp/WEB-INF/lib
 out
-/Spring/*/target
-/Spring/*/*/target
+
+*/*/src/main/resources/jdbc.properties
+*/*/src/main/resources/mybatis-config.xml
+*/*/target
