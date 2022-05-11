@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.houle.dao.UserDao">
+    <select id="selectUser" resultType="com.houle.pojo.User">
+        select * from user
+    </select>
+<!--    <select id="selectUserById" resultType="com.User">-->
+<!--        select * from user where id = #{id}-->
+<!--    </select>-->
+    <!-- 使用别名 -->
+<!--    <select id="selectUserById" resultType="User">-->
+<!--         select * from user where id = #{id}-->
+<!--    </select>-->
+<!--    <select id="selectUserById" resultType="User">-->
+<!--        select id, name, pwd as password from user where id = #{id}-->
+<!--    </select>-->
+    <select id="selectUserByName" resultType="com.houle.pojo.User">
+        select * from user where name = #{name}
+    </select>
+    <select id="selectUserByNP" resultType="com.houle.pojo.User">
+        select * from user where name = #{username} and pwd = #{pwd}
+    </select>
+    <select id="selectUserByNP2" parameterType="map" resultType="com.houle.pojo.User">
+        select * from user where name = #{username} and pwd = #{pwd}
+    </select>
+    <insert id="addUser" parameterType="com.houle.pojo.User">
+        insert into user (id, name, pwd) values (#{id}, #{name}, #{pwd})
+    </insert>
+    <update id="updateUser" parameterType="com.houle.pojo.User">
+        update user set name = #{name}, pwd = #{pwd} where id = #{id}
+    </update>
+    <delete id="deleteUser" parameterType="com.houle.pojo.User">
+        delete from user where id = #{id}
+    </delete>
+
+    <resultMap id="UserMap" type="User">
+        <!-- id为主键 -->
+        <id column="id" property="id"/>
+        <!-- column是数据库表的列名, property是对应实体类的属性名 -->
+        <result column="name" property="name"/>
+        <result column="pwd" property="password"/>
+    </resultMap>
+    <select id="selectUserById" resultMap="UserMap">
+        select id, name, pwd from user where id = #{id}
+    </select>
+</mapper>
