@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="outerObject" class="cn.osxm.ssmi.service.OuterClass" />
+    <bean id="innerObject" class="cn.osxm.ssmi.service.OuterClass$InnerClass" />
+
+    <!-- 静态方法的Bean定义 -->
+    <bean id="staticFactoryService" class="cn.osxm.ssmi.service.StaticFactoryService" factory-method="getInstance" />
+
+    <!-- 工厂类Bean定义 -->
+    <bean id="instanceFactory" class="cn.osxm.ssmi.service.InstanceFactory" />
+    <bean id="foo" factory-bean="instanceFactory" factory-method="getFooInstance" />
+    <bean id="foo2" factory-bean="instanceFactory" factory-method="getFoo2Instance" />
+
+    <bean id="simpleTypeConArgsDepService" class="cn.osxm.ssmi.service.SimpleTypeConArgsDepService">
+        <constructor-arg value="2" />  <!-- 注入整型值 -->
+        <constructor-arg value="hello world" />  <!-- 注入字符型值 -->
+    </bean>
+
+</beans>
