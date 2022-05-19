@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>测试请求参数</title>
+</head>
+<body>
+  <h2>测试请求参数</h2>
+
+  <a th:href="@{/paramController/testServletAPI(username='admin',password='123456')}">通过 Servlet API 获取</a><br/>
+  <a th:href="@{/paramController/testParam(username='admin',password='123456')}">通过控制器方法形参获取</a><br/>
+  <!--为了更直观地在地址栏中看到请求参数，这里使用get类型请求方式-->
+  <form th:action="@{paramController/testParam2}" method="get">
+    用户名：<input type="text" name="username"><br/>
+    密码：<input type="password" name="password"><br/>
+    爱好：<input type="checkbox" name="hobby" value="Spring" />Spring
+    <input type="checkbox" name="hobby" value="SpringMVC">SpringMVC
+    <input type="checkbox" name="hobby" value="SpringBoot">SpringBoot
+    <br/><input type="submit" value="测试请求参数">
+  </form>
+
+  <form th:action="@{paramController/testParam4}" method="get">
+    用户名：<input type="text" name="user_name"><br/>
+    密码：<input type="password" name="password"><br/>
+    爱好：<input type="checkbox" name="hobby" value="Spring" />Spring
+    <input type="checkbox" name="hobby" value="SpringMVC">SpringMVC
+    <input type="checkbox" name="hobby" value="SpringBoot">SpringBoot
+    <br/><input type="submit" value="测试请求参数">
+  </form>
+
+  <form th:action="@{paramController/testParam5}" method="get">
+    密码：<input type="password" name="password"><br/>
+    爱好：<input type="checkbox" name="hobby" value="Spring" />Spring
+    <input type="checkbox" name="hobby" value="SpringMVC">SpringMVC
+    <input type="checkbox" name="hobby" value="SpringBoot">SpringBoot
+    <br/><input type="submit" value="测试请求参数">
+  </form>
+
+  <form th:action="@{paramController/testParam6}" method="get">
+    密码：<input type="password" name="password"><br/>
+    爱好：<input type="checkbox" name="hobby" value="Spring" />Spring
+    <input type="checkbox" name="hobby" value="SpringMVC">SpringMVC
+    <input type="checkbox" name="hobby" value="SpringBoot">SpringBoot
+    <br/><input type="submit" value="测试请求参数">
+  </form>
+
+  <form th:action="@{paramController/testServletSession}" method="get">
+    用户名：<input type="text" name="username"><br/>
+    密码：<input type="password" name="password"><br/>
+    爱好：<input type="checkbox" name="hobby" value="Spring" />Spring
+    <input type="checkbox" name="hobby" value="SpringMVC">SpringMVC
+    <input type="checkbox" name="hobby" value="SpringBoot">SpringBoot
+    <br/><input type="submit" value="测试请求参数">
+  </form>
+  <a th:href="@{/paramController/testCookie}">获取cookie</a><br/>
+
+  <form th:action="@{/paramController/testBean}" method="post">
+    用户名：<input type="text" name="username"><br/>
+    密码：<input type="password" name="password"><br/>
+    性别：<input type="radio" name="gender" value="男人">男
+    <input type="radio" name="gender" value="女人">女<br/>
+    年龄：<input type="text" name="age"><br/>
+    邮箱：<input type="text" name="email"><br/>
+    <input type="submit" value="测试请求参数">
+  </form>
+
+</body>
+</html>
