@@ -4,6 +4,7 @@
 ## Maven
 ## Spring
 ## Spring MVC
+## Hibernate3、Hibernate4
 ## Mybastis
 ## SpringBoot
 ## SpringCloud
