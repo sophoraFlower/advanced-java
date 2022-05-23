@@ -10,6 +10,12 @@
 ## Redis
 ## SpringBoot
 ## SpringCloud
+## 高并发编程
+## 高级网络编程
+## Netty框架
+## ActiveMQ消息中间件
+## Dubbo
+
 ## 项目实践
 
 ### 商铺系统
