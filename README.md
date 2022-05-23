@@ -2,10 +2,12 @@
 
 ## Servlet和JSP
 ## Maven
+## Nginx
 ## Spring
 ## Spring MVC
 ## Hibernate3、Hibernate4
 ## Mybastis
+## Redis
 ## SpringBoot
 ## SpringCloud
 ## 项目实践
