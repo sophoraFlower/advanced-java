@@ -10,6 +10,7 @@
 ## Redis
 ## SpringBoot
 ## SpringCloud
+## SpringSecurity、shiro、SSO
 ## 高并发编程
 ## 高级网络编程
 ## Netty框架
